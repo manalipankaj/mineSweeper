@@ -7,12 +7,9 @@ class GameGrid extends React.Component {
     constructor(props) {
         super(props);
 
-        this.tiles = this.generateTiles();
-        this.mines = [];
-    }
-
-    componentDidMount() {
-        this.tiles = this.generateTiles();
+        this.state = {
+            tiles: this.generateTiles()
+        }
         this.mines = [];
     }
 
@@ -55,9 +52,17 @@ class GameGrid extends React.Component {
         return divs;
     }
 
+    componentDidUpdate(props) {
+        if(props.isGameOver && !this.props.isGameOver) {
+            this.setState({
+                tiles: this.generateTiles()
+            }, this.forceUpdate())
+        }
+    }
+
     render() {
         return (<div style={Styles.grid}>
-            { this.tiles }
+            { this.state.tiles }
         </div>)
     }
 
