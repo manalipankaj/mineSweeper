@@ -56,7 +56,7 @@ class GameGrid extends React.Component {
         if(props.isGameOver && !this.props.isGameOver) {
             this.setState({
                 tiles: this.generateTiles()
-            }, this.forceUpdate())
+            })
         }
     }
 
