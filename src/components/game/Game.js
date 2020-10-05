@@ -38,12 +38,11 @@ class Game extends React.Component {
     }
 
     initializeGame = () => {
-        console.log("State is ", this)
         const { gameLevel } = this.state;
         this.board = generateBoard(gameLevel.size, gameLevel.mines);
         this.setState({
             status: GAME_STATUS.STARTED
-        });
+        }, ()=> this.forceUpdate());
     }
 
     setGameOver = () => {

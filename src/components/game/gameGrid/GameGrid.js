@@ -9,12 +9,9 @@ class GameGrid extends React.Component {
 
         this.tiles = this.generateTiles();
         this.mines = [];
-
-        console.log(" asdf =======================", props)
     }
 
     componentDidMount() {
-        console.log(" asdf =======================", this.props)
         this.tiles = this.generateTiles();
         this.mines = [];
     }
